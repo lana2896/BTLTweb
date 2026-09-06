@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence" version="3.0">
+<persistence-unit name="dataSource">
+<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+<class>com.mthu.entity.Category</class>
+<class>com.mthu.entity.User</class>
+<class>com.mthu.entity.Product</class>
+<properties>
+<property name="jakarta.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+<property name="jakarta.persistence.jdbc.url"
+  value="jdbc:sqlserver://localhost:1433;databaseName=ShoppingServletDB;encrypt=true;trustServerCertificate=true" />
+<property name="jakarta.persistence.jdbc.user" value="root" />
+<property name="jakarta.persistence.jdbc.password" value="2896" />
+<property name="hibernate.dialect" value="org.hibernate.dialect.SQLServerDialect" />
+<property name="hibernate.show_sql" value="true" />
+<property name="hibernate.format_sql" value="true" />
+</properties>
+</persistence-unit>
+</persistence>

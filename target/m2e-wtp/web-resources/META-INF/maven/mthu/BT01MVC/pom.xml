@@ -92,6 +92,21 @@
 			    <artifactId>jbcrypt</artifactId>
 			    <version>0.4</version>
 			</dependency>
+
+			<!-- Lombok: sinh getter/setter/constructor tu dong -->
+			<dependency>
+			    <groupId>org.projectlombok</groupId>
+			    <artifactId>lombok</artifactId>
+			    <version>1.18.34</version>
+			    <scope>provided</scope>
+			</dependency>
+
+			<!-- SiteMesh 3: quan ly layout (decorator) cho toan bo trang JSP -->
+			<dependency>
+			    <groupId>org.sitemesh</groupId>
+			    <artifactId>sitemesh</artifactId>
+			    <version>3.2.1</version>
+			</dependency>
   </dependencies>
 	
 

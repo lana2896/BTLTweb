@@ -93,7 +93,7 @@
 			    <version>0.4</version>
 			</dependency>
 
-			<!-- Lombok: sinh getter/setter/constructor tu dong -->
+			<!-- Lombok: giảm code lặp (getter/setter...) -->
 			<dependency>
 			    <groupId>org.projectlombok</groupId>
 			    <artifactId>lombok</artifactId>
@@ -101,11 +101,11 @@
 			    <scope>provided</scope>
 			</dependency>
 
-			<!-- SiteMesh 3: quan ly layout (decorator) cho toan bo trang JSP -->
+			<!-- SiteMesh 3 (nhánh 3.2.x - tương thích Jakarta EE 9/10, Tomcat 10.x/11.x) -->
 			<dependency>
 			    <groupId>org.sitemesh</groupId>
 			    <artifactId>sitemesh</artifactId>
-			    <version>3.2.1</version>
+			    <version>3.2.2</version>
 			</dependency>
   </dependencies>
 	
@@ -120,6 +120,13 @@
           <configuration>
             	<source>22</source>
             	<target>22</target>
+            	<annotationProcessorPaths>
+            		<path>
+            			<groupId>org.projectlombok</groupId>
+            			<artifactId>lombok</artifactId>
+            			<version>1.18.34</version>
+            		</path>
+            	</annotationProcessorPaths>
           </configuration>
         </plugin>
         <plugin>

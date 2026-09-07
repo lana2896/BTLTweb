@@ -13,4 +13,14 @@ public interface IUserService {
 	void resendOtp(String email) throws Exception;
 	void sendForgotPasswordOtp(String email) throws Exception;
 	boolean resetPassword(String email, String otp, String newPassword);
+
+	/** Lay thong tin user theo id (dung cho trang profile) */
+	User findById(int id);
+
+	/**
+	 * Cap nhat ho ten, so dien thoai va (tuy chon) anh dai dien cua user.
+	 * @param newImagePath duong dan anh moi (null neu nguoi dung khong doi anh)
+	 * @return User da duoc cap nhat, hoac null neu khong tim thay user
+	 */
+	User updateProfile(int userId, String fullname, String phone, String newImagePath);
 }

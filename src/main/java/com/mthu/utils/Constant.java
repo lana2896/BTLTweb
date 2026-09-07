@@ -4,6 +4,8 @@ public class Constant {
 	public static final String SESSION_USERNAME = "username";
 	public static final String COOKIE_REMEMBER = "username";
 	public static final String DIR = "C:\\upload";
+	/** Thư mục con (bên trong DIR) dùng để lưu ảnh đại diện người dùng */
+	public static final String AVATAR_SUBDIR = "avatar";
 
     // Mail
     public static final String MAIL_HOST = "smtp.gmail.com";

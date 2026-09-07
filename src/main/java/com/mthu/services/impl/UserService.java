@@ -103,6 +103,31 @@ public class UserService implements IUserService {
 	}
 
 	@Override
+	public User findById(int id) {
+	    return userDao.findById(id);
+	}
+
+	@Override
+	public User updateProfile(int userId, String fullname, String phone, String newImagePath) {
+	    User u = userDao.findById(userId);
+	    if (u == null) return null;
+
+	    if (fullname != null && !fullname.isBlank()) {
+	        u.setFullname(fullname.trim());
+	    }
+	    if (phone != null && !phone.isBlank()) {
+	        u.setPhone(phone.trim());
+	    }
+	    if (newImagePath != null && !newImagePath.isBlank()) {
+	        u.setImages(newImagePath);
+	    }
+	    u.setUpdatedAt(new Date());
+
+	    userDao.update(u);
+	    return u;
+	}
+
+	@Override
 	public boolean resetPassword(String email, String otp, String newPassword) {
 	    User u = findByEmail(email);
 	    if (u == null || u.getOtpCode() == null || !u.getOtpCode().equals(otp)) return false;

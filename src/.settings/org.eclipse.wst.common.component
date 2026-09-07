@@ -13,7 +13,7 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/target/generated-sources/annotations"/>
                 
         <property name="java-output-path" value="/BT01MVC/target/classes"/>
-        <property name="context-root" value="webmt"/>
+        <property name="context-root" value="webmthu"/>
             
     </wb-module>
     

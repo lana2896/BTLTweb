@@ -11,5 +11,5 @@ public interface IUserDao {
 	boolean checkExistUsername(String username);
 	boolean checkExistEmail(String email);
 	void update(User user);
-	 User findByEmail(String email);
+	User findByEmail(String email);
 }

@@ -169,4 +169,13 @@ VALUES
     (N'Sạc dự phòng Anker 20000mAh', 890000, 100, NULL, N'Sạc nhanh 2 chiều, dung lượng lớn', 4, GETDATE()),
     (N'Chuột không dây Logitech MX Master 3S', 2190000, 35, NULL, N'Chuột văn phòng cao cấp, pin lâu', 4, GETDATE()),
     (N'Bàn phím cơ Keychron K8', 1890000, 20, NULL, N'Bàn phím cơ không dây, switch hot-swap', 4, GETDATE());
+<<<<<<< HEAD
 GO
+=======
+GO
+
+  USE ShoppingServletDB;
+   GO
+   ALTER TABLE users ADD updated_at DATETIME NULL;
+   GO
+>>>>>>> f1913775521b0541e29ed9c2d2a14374d3c77ea7

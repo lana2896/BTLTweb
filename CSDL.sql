@@ -170,3 +170,8 @@ VALUES
     (N'Chuột không dây Logitech MX Master 3S', 2190000, 35, NULL, N'Chuột văn phòng cao cấp, pin lâu', 4, GETDATE()),
     (N'Bàn phím cơ Keychron K8', 1890000, 20, NULL, N'Bàn phím cơ không dây, switch hot-swap', 4, GETDATE());
 GO
+
+  USE ShoppingServletDB;
+   GO
+   ALTER TABLE users ADD updated_at DATETIME NULL;
+   GO

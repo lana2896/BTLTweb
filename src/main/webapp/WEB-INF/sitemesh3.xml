@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemesh>
+    <!--
+        Chi trang /profile duoc trang tri boi decorator "web.jsp".
+        Cac trang cu (home, product, admin...) da tu ve header/footer rieng
+        nen KHONG dua vao mapping "/*" de tranh bi nhan doi header/footer.
+
+        Neu muon ap dung layout cho toan bo site, chi can mo comment mapping
+        "/*" ben duoi va dan dan don dep cac trang cu (bo phan header/footer
+        code cung trong tung JSP, chi giu lai phan noi dung).
+    -->
+<mapping path="/profile" decorator="/web.jsp"/>
+
+    <!-- <mapping path="/*" name="web" decorator="/WEB-INF/decorators/web.jsp"/> -->
+    <!-- <mapping path="/admin/*" name="admin" decorator="/WEB-INF/decorators/admin.jsp"/> -->
+    <!-- <mapping path="/api*" exclude="true"/> -->
+</sitemesh>

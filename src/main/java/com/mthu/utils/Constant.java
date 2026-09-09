@@ -10,8 +10,8 @@ public class Constant {
     // Mail
     public static final String MAIL_HOST = "smtp.gmail.com";
     public static final int MAIL_PORT = 587;
-    public static final String MAIL_USERNAME = "minhthu.08092006@gmail.com"; //
-    public static final String MAIL_PASSWORD = "nvtu iuax hhnp arer";   
+    public static final String MAIL_USERNAME = "mth080906@gmail.com";
+    public static final String MAIL_PASSWORD = "wnjc lzwn gbst jxne";   
     public static final String MAIL_FROM_NAME = "Shop Support";
 
     public static final int OTP_EXPIRE_MINUTES = 5;

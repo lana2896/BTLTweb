@@ -5,54 +5,30 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tất Cả Sản Phẩm</title>
+<title>Tất cả sản phẩm</title>
 <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', Arial, sans-serif; background: #F7F9F8; color: #333; }
-    a { text-decoration: none; color: inherit; }
-
-    header {
-        display: flex; align-items: center; justify-content: space-between;
-        padding: 14px 32px; background: #FFFFFF; border-bottom: 1px solid #E0E0E0;
-    }
-    .logo { font-weight: 700; font-size: 18px; color: #2E7D32; }
-
-    .section { max-width: 1000px; margin: 32px auto; padding: 0 32px; }
+    .section { max-width: 1140px; margin: 32px auto; padding: 0 15px; }
     .section-title { margin-bottom: 20px; }
     .section-title h1 { font-size: 22px; font-weight: 700; color: #222; }
 
     .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .product-card {
-        background: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 8px; padding: 12px; cursor: pointer;
-    }
+    .product-card { background: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 8px; padding: 12px; cursor: pointer; }
     .product-card:hover { border-color: #2E7D32; }
-    .product-thumb {
-        width: 100%; height: 150px; object-fit: cover; border-radius: 6px; margin-bottom: 10px; background: #F0F0F0;
-    }
+    .product-thumb { width: 100%; height: 150px; object-fit: cover; border-radius: 6px; margin-bottom: 10px; background: #F0F0F0; }
     .product-card h3 { font-size: 14px; font-weight: 600; color: #333; margin-bottom: 4px; }
     .product-price { font-size: 14px; font-weight: 700; color: #2E7D32; }
 
-    .pagination { display: flex; justify-content: center; gap: 6px; margin-top: 28px; }
-    .pagination a, .pagination span {
-        display: inline-block; padding: 6px 12px; border: 1px solid #DDD; border-radius: 4px;
-        font-size: 13px; color: #333;
+    .pagination-wrap { display: flex; justify-content: center; gap: 6px; margin-top: 28px; }
+    .pagination-wrap a, .pagination-wrap span {
+        display: inline-block; padding: 6px 12px; border: 1px solid #DDD; border-radius: 4px; font-size: 13px; color: #333;
     }
-    .pagination a:hover { border-color: #2E7D32; color: #2E7D32; }
-    .pagination .active { background: #2E7D32; color: #fff; border-color: #2E7D32; }
+    .pagination-wrap a:hover { border-color: #2E7D32; color: #2E7D32; }
+    .pagination-wrap .active { background: #2E7D32; color: #fff; border-color: #2E7D32; }
 
-    footer { text-align: center; padding: 20px; font-size: 12px; color: #999; border-top: 1px solid #E0E0E0; }
-
-    @media (max-width: 900px) {
-        .product-grid { grid-template-columns: repeat(2, 1fr); }
-    }
+    @media (max-width: 900px) { .product-grid { grid-template-columns: repeat(2, 1fr); } }
 </style>
 </head>
 <body>
-
-    <header>
-        <a href="<c:url value='/home'/>" class="logo">Minh Thư</a>
-    </header>
 
     <section class="section">
         <div class="section-title">
@@ -78,7 +54,7 @@
             </c:if>
         </div>
 
-        <div class="pagination">
+        <div class="pagination-wrap">
             <c:if test="${currentPage > 1}">
                 <a href="<c:url value='/product?page=${currentPage - 1}'/>">‹ Trước</a>
             </c:if>
@@ -99,8 +75,6 @@
             </c:if>
         </div>
     </section>
-
-    <footer>© Minh Thư</footer>
 
 </body>
 </html>

@@ -1,17 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemesh>
     <!--
-        Chi trang /profile duoc trang tri boi decorator "web.jsp".
-        Cac trang cu (home, product, admin...) da tu ve header/footer rieng
-        nen KHONG dua vao mapping "/*" de tranh bi nhan doi header/footer.
+        Cau hinh Layout toan site voi SiteMesh Decorators 3 + Bootstrap 5.
 
-        Neu muon ap dung layout cho toan bo site, chi can mo comment mapping
-        "/*" ben duoi va dan dan don dep cac trang cu (bo phan header/footer
-        code cung trong tung JSP, chi giu lai phan noi dung).
+        - Cac trang xac thuc (login/register/otp/forgot/reset/waiting) tu dung
+          giao dien card rieng (khong header/footer) nen duoc loai tru khoi decorator.
+        - Khu vuc /admin/* va /manager/* dung chung decorator admin.jsp (sidebar + topbar).
+        - Tat ca cac trang con lai (home, product, profile...) dung decorator web.jsp
+          (navbar + footer Bootstrap).
     -->
-<mapping path="/profile" decorator="/web.jsp"/>
 
-    <!-- <mapping path="/*" name="web" decorator="/WEB-INF/decorators/web.jsp"/> -->
-    <!-- <mapping path="/admin/*" name="admin" decorator="/WEB-INF/decorators/admin.jsp"/> -->
-    <!-- <mapping path="/api*" exclude="true"/> -->
+    <!-- Loai tru: khong trang tri cac trang dang nhap/dang ky/OTP -->
+    <mapping path="/login" exclude="true"/>
+    <mapping path="/register" exclude="true"/>
+    <mapping path="/verify-otp" exclude="true"/>
+    <mapping path="/resend-otp" exclude="true"/>
+    <mapping path="/forgot-password" exclude="true"/>
+    <mapping path="/reset-password" exclude="true"/>
+    <mapping path="/waiting" exclude="true"/>
+    <mapping path="/image" exclude="true"/>
+
+    <!-- Khu vuc quan tri: sidebar + topbar Bootstrap -->
+    <mapping path="/admin/*" name="admin" decorator="admin.jsp"/>
+    <mapping path="/manager/*" name="admin" decorator="admin.jsp"/>
+
+    <!-- Toan bo trang con lai: navbar + footer Bootstrap -->
+    <mapping path="/*" decorator="/web.jsp"/>
 </sitemesh>

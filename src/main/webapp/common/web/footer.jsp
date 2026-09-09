@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<style>
-    .site-footer { background:#1c1c1c; color:#ccc; text-align:center; padding:18px;
-        font-family:'Segoe UI', Arial, sans-serif; font-size:13px; margin-top:24px; }
-</style>
-<div class="site-footer">
-    &copy; 2026 Minh Thu Shop &mdash; Bài tập Lập trình Web
-</div>
+<footer class="mt-auto py-4" style="background:#1c1c1c; color:#ccc;">
+  <div class="container text-center" style="font-size:13px;">
+    &copy; <%= java.time.Year.now() %> Minh Thư Shop &mdash; Bài tập Lập trình Web (SiteMesh Decorators 3 + Bootstrap)
+  </div>
+</footer>

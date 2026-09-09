@@ -1,38 +1,53 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
-<style>
-    .site-header { display:flex; align-items:center; justify-content:space-between;
-        padding:14px 32px; background:#FFFFFF; border-bottom:1px solid #E0E0E0;
-        font-family:'Segoe UI', Arial, sans-serif; }
-    .site-header .logo { font-weight:700; font-size:18px; color:#2E7D32; text-decoration:none; }
-    .site-header nav { display:flex; gap:24px; align-items:center; }
-    .site-header nav a { font-size:14px; color:#555; text-decoration:none; }
-    .site-header nav a:hover { color:#2E7D32; }
-    .site-header .user-box { display:flex; align-items:center; gap:8px; }
-    .site-header .user-box img { width:32px; height:32px; border-radius:50%; object-fit:cover; border:1px solid #ddd; }
-</style>
-<div class="site-header">
-    <a class="logo" href="<c:url value='/home'/>">Minh Thu Shop</a>
-    <nav>
-        <a href="<c:url value='/home'/>">Trang chủ</a>
-        <a href="<c:url value='/product'/>">Sản phẩm</a>
-        <c:if test="${not empty sessionScope.account}">
-            <a href="<c:url value='/profile'/>">Trang cá nhân</a>
-            <div class="user-box">
+<%@ taglib prefix="fn" uri="jakarta.tags.functions" %>
+<nav class="navbar navbar-expand-lg navbar-dark shadow-sm" style="background:#2E7D32;">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="<c:url value='/home'/>">🌿 Minh Thư Shop</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="<c:url value='/home'/>">Trang chủ</a></li>
+        <li class="nav-item"><a class="nav-link" href="<c:url value='/product'/>">Sản phẩm</a></li>
+      </ul>
+      <ul class="navbar-nav align-items-lg-center">
+        <c:choose>
+          <c:when test="${not empty sessionScope.account}">
+            <c:if test="${sessionScope.account.roleid == 1}">
+              <li class="nav-item"><a class="nav-link" href="<c:url value='/admin/home'/>">Trang quản trị</a></li>
+            </c:if>
+            <c:if test="${sessionScope.account.roleid == 2}">
+              <li class="nav-item"><a class="nav-link" href="<c:url value='/manager/home'/>">Trang quản lý</a></li>
+            </c:if>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="#" role="button" data-bs-toggle="dropdown">
                 <c:choose>
-                    <c:when test="${not empty sessionScope.account.images}">
-                        <img src="<c:url value='/image'/>?fname=${sessionScope.account.images}" alt="avatar"/>
-                    </c:when>
-                    <c:otherwise>
-                        <img src="<c:url value='/assets/default-avatar.png'/>" alt="avatar"/>
-                    </c:otherwise>
+                  <c:when test="${not empty sessionScope.account.images}">
+                    <c:url value="/image?fname=${sessionScope.account.images}" var="avatarUrl"/>
+                    <img src="${avatarUrl}" class="rounded-circle" width="28" height="28" style="object-fit:cover;" alt="avatar">
+                  </c:when>
+                  <c:otherwise>
+                    <span class="badge rounded-circle bg-light text-success">${fn:substring(sessionScope.account.fullname, 0, 1)}</span>
+                  </c:otherwise>
                 </c:choose>
-                <span>${sessionScope.account.fullname}</span>
-            </div>
-            <a href="<c:url value='/logout'/>">Đăng xuất</a>
-        </c:if>
-        <c:if test="${empty sessionScope.account}">
-            <a href="<c:url value='/login'/>">Đăng nhập</a>
-        </c:if>
-    </nav>
-</div>
+                ${sessionScope.account.fullname}
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="<c:url value='/profile'/>">Trang cá nhân</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item text-danger" href="<c:url value='/logout'/>">Đăng xuất</a></li>
+              </ul>
+            </li>
+          </c:when>
+          <c:otherwise>
+            <li class="nav-item">
+              <a class="btn btn-light btn-sm text-brand fw-semibold" href="<c:url value='/login'/>">Đăng nhập</a>
+            </li>
+          </c:otherwise>
+        </c:choose>
+      </ul>
+    </div>
+  </div>
+</nav>

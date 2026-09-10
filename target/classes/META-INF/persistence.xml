@@ -5,6 +5,8 @@
 <class>com.mthu.entity.Category</class>
 <class>com.mthu.entity.User</class>
 <class>com.mthu.entity.Product</class>
+<class>com.mthu.entity.Cart</class>
+<class>com.mthu.entity.CartItem</class>
 <properties>
 <property name="jakarta.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
 <property name="jakarta.persistence.jdbc.url"

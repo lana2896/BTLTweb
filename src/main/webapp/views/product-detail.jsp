@@ -19,6 +19,7 @@
     .detail-meta { font-size: 13px; color: #777; margin-bottom: 16px; }
     .detail-desc { font-size: 14px; color: #444; line-height: 1.6; margin-bottom: 20px; }
     .back-link { display: inline-block; margin: 20px 0 0 15px; font-size: 13px; color: #2E7D32; }
+    .add-to-cart-form { display: flex; align-items: center; margin-top: 4px; }
 
     @media (max-width: 700px) {
         .detail-wrap { flex-direction: column; }
@@ -45,7 +46,21 @@
                 Còn lại: <b>${product.quantity}</b> sản phẩm
             </div>
             <div class="detail-desc">${product.description}</div>
-            <button class="btn btn-brand">Thêm vào giỏ hàng</button>
+
+            <c:choose>
+                <c:when test="${product.quantity > 0}">
+                    <form method="post" action="<c:url value='/cart/add'/>" class="add-to-cart-form">
+                        <input type="hidden" name="productId" value="${product.id}">
+                        <label for="quantity" style="font-size:13px;color:#555;">Số lượng:</label>
+                        <input type="number" id="quantity" name="quantity" value="1" min="1" max="${product.quantity}"
+                               style="width:60px;padding:6px;margin:0 10px;">
+                        <button type="submit" class="btn btn-brand">Thêm vào giỏ hàng</button>
+                    </form>
+                </c:when>
+                <c:otherwise>
+                    <button class="btn btn-brand" disabled>Hết hàng</button>
+                </c:otherwise>
+            </c:choose>
         </div>
     </div>
 

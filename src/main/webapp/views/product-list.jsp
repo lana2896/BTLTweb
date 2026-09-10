@@ -12,11 +12,17 @@
     .section-title h1 { font-size: 22px; font-weight: 700; color: #222; }
 
     .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .product-card { background: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 8px; padding: 12px; cursor: pointer; }
+    .product-card { background: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 8px; padding: 12px; }
     .product-card:hover { border-color: #2E7D32; }
-    .product-thumb { width: 100%; height: 150px; object-fit: cover; border-radius: 6px; margin-bottom: 10px; background: #F0F0F0; }
+    .product-link { display: block; cursor: pointer; color: inherit; text-decoration: none; }
+    .product-thumb { width: 100%; height: 250px; object-fit: cover; border-radius: 6px; margin-bottom: 10px; background: #F0F0F0; }
     .product-card h3 { font-size: 14px; font-weight: 600; color: #333; margin-bottom: 4px; }
-    .product-price { font-size: 14px; font-weight: 700; color: #2E7D32; }
+    .product-price { font-size: 14px; font-weight: 700; color: #2E7D32; margin-bottom: 10px; }
+    .btn-add-cart {
+        width: 100%; padding: 8px; border: 1px solid #2E7D32; background: #2E7D32; color: #fff;
+        border-radius: 4px; font-size: 13px; cursor: pointer;
+    }
+    .btn-add-cart:hover { background: #256a29; }
 
     .pagination-wrap { display: flex; justify-content: center; gap: 6px; margin-top: 28px; }
     .pagination-wrap a, .pagination-wrap span {
@@ -37,8 +43,8 @@
 
         <div class="product-grid">
             <c:forEach items="${products}" var="p">
-                <a href="<c:url value='/product/detail?id=${p.id}'/>">
-                    <div class="product-card">
+                <div class="product-card">
+                    <a href="<c:url value='/product/detail?id=${p.id}'/>" class="product-link">
                         <c:url value="/image?fname=${p.image}" var="imgUrl"/>
                         <img src="${imgUrl}" class="product-thumb"
                              onerror="this.src='https://via.placeholder.com/220x150?text=No+Image'" />
@@ -46,8 +52,20 @@
                         <div class="product-price">
                             <fmt:formatNumber value="${p.price}" type="number" groupingUsed="true"/> đ
                         </div>
-                    </div>
-                </a>
+                    </a>
+                    <c:choose>
+                        <c:when test="${p.quantity > 0}">
+                            <form method="post" action="<c:url value='/cart/add'/>">
+                                <input type="hidden" name="productId" value="${p.id}">
+                                <input type="hidden" name="quantity" value="1">
+                                <button type="submit" class="btn-add-cart">Thêm vào giỏ hàng</button>
+                            </form>
+                        </c:when>
+                        <c:otherwise>
+                            <button class="btn-add-cart" disabled>Hết hàng</button>
+                        </c:otherwise>
+                    </c:choose>
+                </div>
             </c:forEach>
             <c:if test="${empty products}">
                 <p>Chưa có sản phẩm nào.</p>

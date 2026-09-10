@@ -37,7 +37,7 @@
     .product-card { background: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 8px; padding: 12px; cursor: pointer; }
     .product-card:hover { border-color: #2E7D32; }
     .product-thumb {
-        width: 100%; height: 110px; border-radius: 6px; background: #F0F0F0;
+        width: 100%; height: 200px; border-radius: 6px; background: #F0F0F0;
         display: flex; align-items: center; justify-content: center; margin-bottom: 10px;
         object-fit: cover; font-size: 28px; color: #AAA;
     }

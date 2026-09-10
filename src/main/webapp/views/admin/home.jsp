@@ -12,7 +12,7 @@
         background: #FFFFFF; border: 1px solid #E0E0E0; border-radius: 8px;
         padding: 12px; text-align: center;
     }
-    .cate-card img { width: 100%; height: 100px; object-fit: cover; border-radius: 6px; margin-bottom: 8px; background: #F0F0F0; }
+    .cate-card img { width: 100%; height: 250px; object-fit: cover; border-radius: 6px; margin-bottom: 8px; background: #F0F0F0; }
     .cate-card h3 { font-size: 13.5px; font-weight: 600; color: #333; }
     @media (max-width: 900px) { .cate-grid { grid-template-columns: repeat(2, 1fr); } }
 </style>

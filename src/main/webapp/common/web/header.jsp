@@ -15,6 +15,7 @@
       <ul class="navbar-nav align-items-lg-center">
         <c:choose>
           <c:when test="${not empty sessionScope.account}">
+            <li class="nav-item"><a class="nav-link" href="<c:url value='/cart'/>">Giỏ hàng</a></li>
             <c:if test="${sessionScope.account.roleid == 1}">
               <li class="nav-item"><a class="nav-link" href="<c:url value='/admin/home'/>">Trang quản trị</a></li>
             </c:if>

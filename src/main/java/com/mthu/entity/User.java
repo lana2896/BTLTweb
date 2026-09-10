@@ -49,7 +49,7 @@ public class User implements Serializable {
     private String email;
     private String fullname;
 
-    /** Duong dan tuong doi toi file avatar, vi du: "avatar/173xxxxx.jpg" */
+
     private String images;
 
     private String phone;
